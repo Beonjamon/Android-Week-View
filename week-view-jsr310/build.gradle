@@ -10,20 +10,25 @@ version = '5.3.0'
 android {
     compileSdkVersion buildConfig.compileSdk
     defaultConfig {
-        minSdkVersion buildConfig.minSdk
+        minSdkVersion buildConfig.minSdkJsr310
         targetSdkVersion buildConfig.targetSdk
+        multiDexEnabled true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
     }
 }
 
 dependencies {
-    implementation project(':base')
-    implementation project(':core')
-
+    implementation project(':week-view-core')
     implementation libraries.kotlin
-    implementation libraries.emoji
-    implementation libraries.startup
+    implementation libraries.appCompat
+
+    coreLibraryDesugaring libraries.coreLibraryDesugaring
+
+    testImplementation testing.jUnit
+    testImplementation testing.mockitoCore
+    testImplementation testing.mockitoInline
 }

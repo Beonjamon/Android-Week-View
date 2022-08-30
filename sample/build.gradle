@@ -25,9 +25,9 @@ android {
 }
 
 dependencies {
-    implementation project(':core')
-    implementation project(':emoji')
-    implementation project(':jsr310')
+    implementation project(':week-view-core')
+    implementation project(':week-view-emoji')
+    implementation project(':week-view-jsr310')
 
     coreLibraryDesugaring libraries.coreLibraryDesugaring
 
